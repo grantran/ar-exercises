@@ -30,7 +30,7 @@ womens_apparel: true)
   p item.annual_revenue
 end
 
-@womens_apparel = Store.where('annual_revenue < 1000000', 'womens_apparel: true')
+@womens_apparel = Store.where('annual_revenue < 1000000').where('womens_apparel = true')
 
 @womens_apparel.each do |item|
   p item
