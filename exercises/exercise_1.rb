@@ -5,6 +5,10 @@ puts "----------"
 
 # Rails 5: ApplicationRecord, Rails 4: ActiveRecord::Base
 class Store < ActiveRecord::Base
+  has_many :employees
+  validates:name, :length => {:minimum => 3, message: "must be longer than 2 chars"}
+  validates:annual_revenue, :numericality => {:only_integer => true,
+    :greater_than => 0, message: 'must be integer value and between 30/200'}
 
   burnaby = 
   Store.create(name: 'Burnaby', annual_revenue: 300000, 
